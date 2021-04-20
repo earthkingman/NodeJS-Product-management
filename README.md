@@ -210,8 +210,8 @@ NoSQL에서는 다른 구조의 데이터를 같은 컬렉션(= SQL에서의 테
 |키|속성|이름|Null 허용|유형|기본값|
 |--|---|---|---|---|---|
 |기본키|구매 관리 ID|id|Not null|INT|AUTO_INCREMENT|
-||사용자 ID|userid|Not null|VARCHAR(128)|
-||상품 ID|goodsid|Not null|VARCHAR(128)|
+||사용자 ID|userid|Not null|INT|
+||상품 ID|goodsid|Not null|INT|
 ||구매 일자|date|Not null|DATETIME|CURRENT_TIMESTAMP|
 
 
