@@ -38,6 +38,7 @@
 - 회원 관리(회원 등록, 회원 인증, 회원 탈퇴)
 - 구매 관리(구매, 구매 내역 조회)
 - 상품 정보는 '상품명', '상품 카테고리', '가격', '상품 설명'으로 구성됩니다.
+- 상품 조회는 등록된 모든 상품을 조회하는 기능입니다.
 ## REST API 설계
 ### 상품 관리 REST API
 |기능|메서드|URI|
@@ -45,22 +46,47 @@
 |상품 등록|POST|/goods|
 |상품 조회|GET|/goods|
 |상품 삭제|DELETE|/goods|
-### 상품 등록 입력 파라미터
+- 상품 등록 입력 파라미터
+
 |파라미터명|의미|타입|
 |------|---|---|
 |name|상품명|String|
 |category|상품 카테고리|String|
 |price|가격|Number|
 |description|상품 설명|String|
-### 상품 등록 결과
+- 상품 등록 결과
+
 |파라미터명|의미|타입|
 |------|---|---|
 |errorcode|에러 코드|Number|
 |errormessage|에러 메세지|Number|
-### 상품 조회 결과
+- 상품 조회 결과      
+        
 |파라미터명|의미|타입|
 |------|---|---|
 |errorcode|에러 코드|Number|
 |errormessage|에러 메세지|Number|
+|results|상품 목록|Array|
+- 상품 목록 상세
+
+|파라미터명|의미|타입|
+|------|---|---|
+|id|고유 번호|Number|
+|name|상품명|String|
+|category|상품 카테고리|String|
+|price|가격|Number|
+|description|상품 설명|String|
+- 상품 삭제 입력 파라미터
+
+|파라미터명|의미|타입|
+|------|---|---|
+|id|고유 번호|Number|
+- 상품  결과
+
+|파라미터명|의미|타입|
+|------|---|---|
+|errorcode|에러 코드|Number|
+|errormessage|에러 메세지|Number|
+
 
 
