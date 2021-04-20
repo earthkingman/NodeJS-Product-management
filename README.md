@@ -191,5 +191,28 @@ NoSQL에서는 다른 구조의 데이터를 같은 컬렉션(= SQL에서의 테
 그래서 관계형 데이터베이스 Mysql을 사용하겠습니다.
 
 ## 상품 관리 테이블 설계
+|키|속성|이름|Null 허용|유형|기본값|
+|--|---|---|---|---|---|
+|기본키|상품 ID|id|Not null|INT|AUTO_INCREMENT|
+||상품명|name|Not null|VARCHAR(128)|
+||카테고리|catagory|Not null|VARCHAR(128)|
+||가격|price|Not null|INT|
+||상품 설명|description|Not null|TEXT|
+
+## 회원 관리 테이블 설계
+|키|속성|이름|Null 허용|유형|기본값|
+|--|---|---|---|---|---|
+|기본키|사용자 ID|id|Not null|INT|AUTO_INCREMENT|
+|유일키|사용자명|username|Not null|VARCHAR(128)|
+||패스워드|password|Not null|VARCHAR(256)|
+
+## 구매 관리 테이블 설계
+|키|속성|이름|Null 허용|유형|기본값|
+|--|---|---|---|---|---|
+|기본키|구매 관리 ID|id|Not null|INT|AUTO_INCREMENT|
+||사용자 ID|userid|Not null|VARCHAR(128)|
+||상품 ID|goodsid|Not null|VARCHAR(128)|
+||구매 일자|date|Not null|DATETIME|CURRENT_TIMESTAMP|
+
 
 
