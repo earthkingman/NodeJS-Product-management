@@ -2,6 +2,10 @@ const http = require('http');   //http 모듈 로드
 const url = require('url');     //url 모듈 로드    
 const querystring = require('querystring');  //quertstring 모듈 로드
 
+const members = require('./members.js');
+const purchases = require('./purchases.js');
+const goods = require('./goods.js');
+
 const server = http.createServer((req, res) => { // 서버 생성, 요청이 들어올 때마다 매번 콜백 함수 실행 
     let method = req.method; // 메서드 정보 ex(GET인지 POST인지)
     let uri = url.parse(req.url, true); // url속성을 파싱
@@ -27,6 +31,22 @@ const server = http.createServer((req, res) => { // 서버 생성, 요청이 들
     }
 }).listen(8000);
 
-function onRequest(res, method, pathname, params){ //var 변수 선언과 함수선언문에서만 호이스팅
-    res.end("respond !");
+function onRequest(res, method, pathname, params) { //var 변수 선언과 함수선언문에서만 호이스팅
+    switch (pathname) {
+        case "/members":
+            members.onRequest(res, method, pathname, params, response);
+        case "/goods":
+            goods.onRequest(res, method, pathname, params, response);
+        case "/purchases":
+            purchases.onRequest(res, method, pathname, params, response);
+        default:
+            res.writeHead(404);
+            return res.end();
+    }
+}
+
+function response(res, packet)
+{
+    res.writeHead(200, { 'Contet-Type' : 'application/json' });
+    res.end(JSON.stringify(packet));
 }
